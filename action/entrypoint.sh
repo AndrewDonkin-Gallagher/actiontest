@@ -14,7 +14,7 @@ echo Starting new gh-pages branch
 git checkout --orphan gh-pages "${GITHUB_SHA}"
 # git checkout "${GITHUB_SHA}" -B gh-pages
 
-find / -name "*mmdc*" -ls
+find / -name "*ruby*" -ls
 
 echo Plain
 asciidoctor -o index.html --verbose test.adoc || true
