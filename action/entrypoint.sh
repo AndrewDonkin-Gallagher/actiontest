@@ -28,6 +28,10 @@ asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose test.adoc || true
 
 echo "Adding *.html to gh-pages branch"
 
+# Git insists on these
+git config --global user.email "action@github.com"
+git config --global user.name "GitHub Action"
+
 # echo '!index.html' >> .gitignore
 git add -f *.html book.pdf
 git rm -rf .github || true
