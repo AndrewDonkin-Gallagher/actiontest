@@ -11,8 +11,8 @@ git fetch --all
 echo Deleting gh-pages branch
 git branch --quiet -D gh-pages 2>/dev/null || true
 echo Starting new gh-pages branch
-#git checkout --orphan gh-pages "${GITHUB_SHA}"
-git checkout "${GITHUB_SHA}" -B gh-pages
+git checkout --orphan gh-pages "${GITHUB_SHA}"
+# git checkout "${GITHUB_SHA}" -B gh-pages
 
 echo Plain
 asciidoctor -o index.html --verbose test.adoc || true
