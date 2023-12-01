@@ -8,7 +8,7 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Generate HTML from asciidoc
     steps:
       # To use this repository's private action,
       # you must check out the repository
