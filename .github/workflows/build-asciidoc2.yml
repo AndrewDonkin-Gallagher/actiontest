@@ -14,8 +14,8 @@ jobs:
       # you must check out the repository
       - name: "Step:  Checkout"
         uses: actions/checkout@v4
-      - name: "Step:  Build HTML from Asciidoc"
-        uses: ./action
+#      - name: "Step:  Build HTML from Asciidoc"
+#        uses: ./action
       - name: "Step:  Equinor build"
         id: adocbuild
         uses: equinor/asciidoctor-action@main
