@@ -18,7 +18,8 @@
 // :sectanchors:
 :sectlinks:
 
-:mmdc:/usr/lib/ruby/gems/3.2.0/gems/asciidoctor-diagram-2.2.14/lib/asciidoctor-diagram/mermaid.rb
+:mmdc: /usr/lib/ruby/gems/3.2.0/gems/asciidoctor-diagram-2.2.14/lib/asciidoctor-diagram/mermaid.rb
+:mermaid: /usr/lib/ruby/gems/3.2.0/gems/asciidoctor-diagram-2.2.14/lib/asciidoctor-diagram/mermaid.rb
 
 == Flowchart for AsciiDoc
 
