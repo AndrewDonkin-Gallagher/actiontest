@@ -1,4 +1,4 @@
-FROM barthel/docker-asciidoctor:latest
+FROM uwebarthel/asciidoctor:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
