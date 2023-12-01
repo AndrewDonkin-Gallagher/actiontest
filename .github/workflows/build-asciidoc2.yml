@@ -14,10 +14,8 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
-#      - name: Build HTML from Asciidoc
-#        uses: ./action
-      - name: asciidoctor-ghpages
-        uses: manoelcampos/asciidoctor-ghpages-action@v2
-        with:
-          pdf_build: false
+      - name: Build HTML from Asciidoc
+        uses: ./action
+#      - name: asciidoctor-ghpages
+#        uses: manoelcampos/asciidoctor-ghpages-action@v2
 
