@@ -6,7 +6,7 @@ on:
     - main
 
 jobs:
-  hello_world_job:
+  buildhtml:
     runs-on: ubuntu-latest
     name: Generate HTML from asciidoc
     steps:
@@ -14,8 +14,10 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build HTML from Asciidoc
-        uses: ./action
-        id: adoc
-
+#      - name: Build HTML from Asciidoc
+#        uses: ./action
+      - name: asciidoctor-ghpages
+        uses: manoelcampos/asciidoctor-ghpages-action@v2
+        with:
+          pdf_build: true
 
