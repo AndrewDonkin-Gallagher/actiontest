@@ -21,4 +21,4 @@ jobs:
         uses: equinor/asciidoctor-action@main
         with:
           entry_point: test
-          docs_folder: ./
+          docs_folder: ./docs
