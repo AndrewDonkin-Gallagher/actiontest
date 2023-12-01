@@ -14,11 +14,6 @@ echo Starting new gh-pages branch
 git checkout --orphan gh-pages "${GITHUB_SHA}"
 # git checkout "${GITHUB_SHA}" -B gh-pages
 
-find / -name "*mermaid*" -ls
-ls -al /usr/lib/ruby/gems/3.2.0/gems/*/lib/asciidoctor-diagram/mermaid
-
-echo $PATH
-
 echo Plain
 asciidoctor -o index.html --verbose test.adoc || true
 

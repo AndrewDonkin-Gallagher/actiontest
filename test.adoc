@@ -18,7 +18,7 @@
 // :sectanchors:
 :sectlinks:
 
-:mmdc:mermaid/mermaid.rb
+:mmdc:mermaid.rb
 
 == Flowchart for AsciiDoc
 
