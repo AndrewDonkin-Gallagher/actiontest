@@ -14,10 +14,8 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Hello world action step
+      - name: Build HTML from Asciidoc
         uses: ./action
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
+        id: adoc
 
 

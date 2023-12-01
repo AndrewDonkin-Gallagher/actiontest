@@ -2,8 +2,7 @@
 
 # Bail on error.
 set -e
-#
- Hush ownership complaints
+# Hush ownership complaints
 git config --global --add safe.directory /github/workspace
 git fetch --all
 
