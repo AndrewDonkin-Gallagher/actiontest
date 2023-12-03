@@ -33,7 +33,7 @@ echo Multipage
 rm -rf paged
 asciidoctor-multipage -r asciidoctor-diagram -D paged --verbose test.adoc || true
 # sigh
-(cd paged && ls -alR && rm -rf .asciidoctor && ln -sf assets/*png .)
+(cd paged && ls -alR && rm -rf .asciidoctor && cp assets/*png . && cp _flowchart_for_asciidoc.html foo.html)
 
 # Git insists on these
 git config --global user.email "action@github.com"
