@@ -5,8 +5,6 @@ set -e
 # Hush ownership complaints
 git config --global --add safe.directory /github/workspace
 
-env
-
 echo Fetch:
 git fetch --all
 
@@ -32,8 +30,6 @@ asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose test.adoc || true
 echo Multipage
 rm -rf paged
 asciidoctor-multipage -r asciidoctor-diagram -D paged --verbose test.adoc || true
-# Bad image links in that HTML
-(cd paged && ls -alR && rm -rf .asciidoctor && cp assets/*png . )
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
 
