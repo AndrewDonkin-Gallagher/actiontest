@@ -31,7 +31,7 @@ asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose test.adoc || true
 
 echo Multipage
 rm -rf paged
-asciidoctor-multiplage -r asciidoctor-diagram -D paged --verbose test.adoc || true
+asciidoctor-multipage -r asciidoctor-diagram -D paged --verbose test.adoc || true
 
 # Git insists on these
 git config --global user.email "action@github.com"

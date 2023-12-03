@@ -18,6 +18,8 @@
 // :sectanchors:
 :sectlinks:
 
+Version %%GITHUB_RUN_NUMBER%%/%%GITHUB_SHA%% @ %%DATE%%.
+
 == Flowchart for AsciiDoc
 
 [mermaid]
@@ -29,6 +31,9 @@ sequenceDiagram
     Bob-->>Alice: Great!
 ....
 
+=== subsection
+
+text
 
 == Flowchart for GitHub
 [source,mermaid]
@@ -40,4 +45,7 @@ sequenceDiagram
     Bob-->>Alice: Great!
 ....
 
-Version %%GITHUB_RUN_NUMBER%%/%%GITHUB_SHA%% @ %%DATE%%.
+=== subsection
+
+text
+
