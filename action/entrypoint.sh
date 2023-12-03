@@ -20,8 +20,7 @@ sed -i \
     -e 's@\[source,mermaid\]@[mermaid]@' \
     -e "s@%%GITHUB_RUN_NUMBER%%@$GITHUB_RUN_NUMBER@" \
     -e "s@%%GITHUB_SHA%%@$GITHUB_SHA@" \
-    -e "s@%%GITHUB_TRIGGERING_ACTOR%%@$GITHUB_TRIGGERING_ACTOR@" \
-    -e "s@%%DATE%%@${date}@" \
+    -e "s@%%DATE%%@$(date)@" \
     test.adoc
 
 echo Plain
