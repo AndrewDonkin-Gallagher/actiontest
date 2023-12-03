@@ -39,3 +39,5 @@ sequenceDiagram
     Alice->>Bob: Hello Bob, how are you?
     Bob-->>Alice: Great!
 ....
+
+Version $$GITHUB_RUN_NUMBER%%/$$GITHUB_SHA%%/%%GITHUB_TRIGGERING_ACTOR%% @ %%DATE%%.

@@ -16,22 +16,22 @@ echo Starting new gh-pages branch
 git checkout --orphan gh-pages "${GITHUB_SHA}"
 # git checkout "${GITHUB_SHA}" -B gh-pages
 
-T=test.adoc.$$
-
-sed 's@\[source,mermaid\]@[mermaid]@' < test.adoc > $T
+sed -i \
+    -e 's@\[source,mermaid\]@[mermaid]@' \
+    -e "s@%%GITHUB_RUN_NUMBER%%@$GITHUB_RUN_NUMBER@" \
+    -e "s@%%GITHUB_SHA%%@$GITHUB_SHA@" \
+    -e "s@%%GITHUB_TRIGGERING_ACTOR%%@$GITHUB_TRIGGERING_ACTOR@" \
+    -e "s@%%DATE%%@${date}@" \
+    test.adoc
 
 echo Plain
-asciidoctor -o index.html --verbose $T || true
+asciidoctor -o index.html --verbose test.adoc || true
 
 echo Diagram
-asciidoctor -r asciidoctor-diagram -o index2.html --verbose $T || true
+asciidoctor -r asciidoctor-diagram -o index2.html --verbose test.adoc || true
 
 echo Book
-asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose $T || true
-
-ls -alR
-
-rm -f $T ||:
+asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose test.adoc || true
 
 # Git insists on these
 git config --global user.email "action@github.com"
@@ -39,7 +39,7 @@ git config --global user.name "GitHub Action"
 
 echo "Adding *.html assets book.pdf to gh-pages branch"
 git add -f *.html assets book.pdf
-git rm -rf .github action || true
+git rm -rf .gitignore .github action || true
 git status
 git commit -m "Asciidoctored $GITHUB_SHA"
 
