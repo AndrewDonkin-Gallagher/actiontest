@@ -23,21 +23,22 @@ sed -i \
     -e "s@%%DATE%%@$(date)@" \
     test.adoc
 
-echo Plain
-asciidoctor -o index.html --verbose test.adoc || true
-
 echo Diagram
-asciidoctor -r asciidoctor-diagram -o index2.html --verbose test.adoc || true
+asciidoctor -r asciidoctor-diagram -o index.html --verbose test.adoc || true
 
 echo Book
 asciidoctor-pdf -r asciidoctor-diagram -o book.pdf --verbose test.adoc || true
+
+echo Multipage
+rm -rf paged
+asciidoctor-multiplage -r asciidoctor-diagram -D paged --verbose test.adoc || true
 
 # Git insists on these
 git config --global user.email "action@github.com"
 git config --global user.name "GitHub Action"
 
 echo "Adding *.html assets book.pdf to gh-pages branch"
-git add -f *.html assets book.pdf
+git add -f *.html assets book.pdf paged
 git rm -rf .gitignore .github action || true
 git status
 git commit -m "Asciidoctored $GITHUB_SHA"
