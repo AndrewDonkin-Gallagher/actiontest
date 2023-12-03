@@ -18,7 +18,9 @@
 // :sectanchors:
 :sectlinks:
 
-Version %%GITHUB_RUN_NUMBER%%/%%GITHUB_SHA%% @ %%DATE%%.
+=== Version
+
+%%GITHUB_RUN_NUMBER%%/%%GITHUB_SHA%% %%DATE%%.
 
 == Flowchart for AsciiDoc
 
