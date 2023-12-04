@@ -46,7 +46,8 @@ asciidoctor-multipage -r asciidoctor-diagram -D $D -o $D/paged.html --verbose te
 
 echo Putting output into $INPUT_OUTPUT
 tar --dereference -C $D -cvf $INPUT_OUTPUT --exclude .asciidoctor .
-ls l $INPUT_OUTPUT
+ls -al $RUNNER_TEMP
+ls -l $INPUT_OUTPUT
 
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
