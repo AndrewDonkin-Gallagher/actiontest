@@ -13,13 +13,16 @@ set -e
 #echo Starting new gh-pages branch
 #git checkout --orphan gh-pages "${GITHUB_SHA}"
 
+# Arguments:
+# $1 == $INPUT_OUTPUT :  filename for tarball artifact
+
 echo Args
 echo $*
 
 echo Env
 env
 
-[[ x"$OUTPUT" != x ]]
+[[ x"$INPUT_OUTPUT" != x ]]
 
 sed -i \
     -e 's@\[source,mermaid\]@[mermaid]@' \
@@ -28,7 +31,7 @@ sed -i \
     -e "s@%%DATE%%@$(date)@" \
     test.adoc
 
-D=temp.$$
+D=${RUNNER_TEMP}/adoc.$$
 rm -rf $D
 mkdir -p $D
 
@@ -41,7 +44,7 @@ asciidoctor-pdf -r asciidoctor-diagram -o $D/book.pdf --verbose test.adoc || tru
 echo Multipage
 asciidoctor-multipage -r asciidoctor-diagram -D $D/paged --verbose test.adoc || true
 
-tar --dereference --hard-dereference -C $D -cvf $OUTPUT .
+tar --dereference --hard-dereference -C $D -cvf $INPUT_OUTPUT .
 
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
