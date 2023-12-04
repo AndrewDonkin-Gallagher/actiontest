@@ -16,22 +16,18 @@ sed -i \
     test.adoc
 
 # $$ is probably "1"
-D=${RUNNER_TEMP}/adoc.$$
-rm -rf $D
-mkdir -p $D
+T=${RUNNER_TEMP}/adoc.$$.tar
 
 echo Building single-page HTML version of AsciiDoc
-asciidoctor -r asciidoctor-diagram -o $D/index.html --verbose test.adoc || true
-
-echo Building PDF from AsciiDoc
-asciidoctor-pdf -r asciidoctor-diagram -o $D/book.pdf --verbose test.adoc || true
+asciidoctor -r asciidoctor-diagram -o index.html --verbose test.adoc || true
 
 echo Building multi-page HTML from AsciiDoc
-asciidoctor-multipage -r asciidoctor-diagram -D $D -o $D/paged.html --verbose test.adoc || true
+asciidoctor-multipage -r asciidoctor-diagram -D multipage -o multipage/index.html --verbose test.adoc || true
 
 echo Putting output into $INPUT_OUTPUT
-tar --dereference -C $D -cvf $INPUT_OUTPUT --exclude .asciidoctor .
+tar --dereference -cvf $T --exclude .asciidoctor .
 ls -alr $RUNNER_TEMP
+mv $T $INPUT_OUTPUT
 
 echo Artifact: $INPUT_OUTPUT
 ls -l $INPUT_OUTPUT

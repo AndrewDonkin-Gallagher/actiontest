@@ -31,15 +31,11 @@ jobs:
         uses: actions/configure-pages@v3
       - name: "Step:  build HTML tarball from Asciidoc"
         uses: ./action
-        with:
-          output: artifact.tar
-      - name: "Step:  upload artifact"
-        uses: actions/upload-artifact@v3
+      - name: "Step:  upload pages artifact"
+        uses: actions/upload-pages-artifact@v1
         with:
           name: github-pages
-          path: artifact.tar
-          retention-days: 1
-          if-no-files-found: error
+          path: .
 
   deployjob:
     name: "Job:  HTML to GitHub Pages"
