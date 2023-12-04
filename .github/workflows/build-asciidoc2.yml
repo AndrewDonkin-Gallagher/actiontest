@@ -1,4 +1,4 @@
-name: "Workflow:  Build asciidocs and publish to GitHub Pages"
+name: "Workflow:  Build from AsciiDoc and publish to GitHub Pages"
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
       - name: "Step:  setup pages"
         uses: actions/configure-pages@v3
-      - name: "Step:  Build HTML from Asciidoc"
+      - name: "Step:  Build HTML tarball from Asciidoc"
         uses: ./action
         with:
           output: artifact.tar

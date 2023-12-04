@@ -2,25 +2,9 @@
 
 # Bail on error.
 set -e
-# Hush ownership complaints
-#git config --global --add safe.directory /github/workspace
-
-#echo Fetch:
-#git fetch --all
-
-#echo Deleting gh-pages branch
-#git branch --quiet -D gh-pages 2>/dev/null || true
-#echo Starting new gh-pages branch
-#git checkout --orphan gh-pages "${GITHUB_SHA}"
 
 # Arguments:
 # $1 == $INPUT_OUTPUT :  filename for tarball artifact
-
-echo Args
-echo $*
-
-echo Env
-env
 
 [[ x"$INPUT_OUTPUT" != x ]]
 
@@ -53,15 +37,3 @@ ls -l $INPUT_OUTPUT
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
 
-# Git insists on these
-#git config --global user.email "action@github.com"
-#git config --global user.name "GitHub Action"
-
-#echo "Adding *.html assets book.pdf to gh-pages branch"
-#git add -f *.html assets book.pdf paged
-#git rm -rf .gitignore .github action || true
-#git status
-#git commit -m "Asciidoctored $GITHUB_SHA"
-
-#echo Pushing
-#git push -f --set-upstream origin gh-pages
