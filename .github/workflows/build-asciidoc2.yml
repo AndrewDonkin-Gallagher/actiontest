@@ -1,4 +1,4 @@
-name: "Workflow:  Build asciidocs"
+name: "Workflow:  Build asciidocs and publish to GitHub Pages"
 
 on:
   push:
@@ -25,8 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     name: "Job:  Generate HTML from Asciidoc"
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: "Step:  Checkout"
         uses: actions/checkout@v4
       - name: "Step:  setup pages"
@@ -38,7 +36,6 @@ jobs:
         with:
           path: ./_foo
 
-  # Deployment job
   deployjob:
     name: "Job:  Deploy HTML to GitHub Pages"
     environment:
