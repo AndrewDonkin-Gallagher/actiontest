@@ -35,16 +35,20 @@ D=${RUNNER_TEMP}/adoc.$$
 rm -rf $D
 mkdir -p $D
 
-echo Diagram
+echo Building single-page HTML version of AsciiDoc
 asciidoctor -r asciidoctor-diagram -o $D/index.html --verbose test.adoc || true
 
-echo Book
+echo Building PDF from AsciiDoc
 asciidoctor-pdf -r asciidoctor-diagram -o $D/book.pdf --verbose test.adoc || true
 
-echo Multipage
+echo Building multi-page HTML from AsciiDoc
 asciidoctor-multipage -r asciidoctor-diagram -D $D/paged --verbose test.adoc || true
 
+echo Putting output into $INPUT_OUTPUT
 tar --dereference --hard-dereference -C $D -cvf $INPUT_OUTPUT .
+
+uname -a
+echo $RUNNER_OS
 
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
