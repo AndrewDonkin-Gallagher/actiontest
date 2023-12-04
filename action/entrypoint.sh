@@ -21,7 +21,7 @@ sed -i \
     test.adoc
 
 D=_foo
-rm -r $D
+rm -rf $D
 mkdir -p $D
 
 echo Diagram
