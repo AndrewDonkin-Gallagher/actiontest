@@ -17,6 +17,8 @@ sed -i \
 
 # $$ is probably "1"
 T=${RUNNER_TEMP}/adoc.$$.tar
+ls -al $RUNNER_TEMP ||:
+mkdir -p $RUNNER_TEMP
 
 echo Building single-page HTML version of AsciiDoc
 asciidoctor -r asciidoctor-diagram -o index.html --verbose test.adoc || true
