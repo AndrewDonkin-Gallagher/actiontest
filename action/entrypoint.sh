@@ -46,9 +46,12 @@ asciidoctor-multipage -r asciidoctor-diagram -D $D/paged --verbose test.adoc || 
 
 uname -a
 echo $RUNNER_OS
+type tar
+type gtar ||:
+ls -al /bin/*tar* /usr/bin/*tar* ||:
 
 echo Putting output into $INPUT_OUTPUT
-tar --dereference --hard-dereference -C $D -cvf $INPUT_OUTPUT .
+tar --dereference -C $D -cvf $INPUT_OUTPUT .
 
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
