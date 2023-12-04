@@ -34,7 +34,7 @@ jobs:
       - name: "Step:  prepare pages for upload"
         run: |
           mkdir -p _site
-          mv index.html multipage _site
+          cp -r index.html multipage _site
       - name: "Step:  upload pages artifact"
         uses: actions/upload-pages-artifact@v1
         with:
