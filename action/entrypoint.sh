@@ -31,6 +31,7 @@ sed -i \
     -e "s@%%DATE%%@$(date)@" \
     test.adoc
 
+# $$ is probably "1"
 D=${RUNNER_TEMP}/adoc.$$
 rm -rf $D
 mkdir -p $D

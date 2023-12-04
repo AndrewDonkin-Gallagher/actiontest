@@ -32,12 +32,12 @@ jobs:
       - name: "Step:  Build HTML from Asciidoc"
         uses: ./action
         with:
-          output: ${{ runner.temp }}/artifact.tar
+          output: artifact.tar
       - name: "Step:  upload artifact"
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: artifact.tar
           retention-days: 1
           if-no-files-found: error
 
