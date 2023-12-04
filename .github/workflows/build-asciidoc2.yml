@@ -35,6 +35,8 @@ jobs:
         run: |
           echo "::warning warning"
           mkdir _site
+          pwd
+          ls -al
           mv ref training _site
       - name: "Step:  upload pages artifact"
         uses: actions/upload-pages-artifact@v1
