@@ -50,4 +50,5 @@ jobs:
     needs: buildhtmljob
     steps:
       - name: "Step:  deploy to GitHub Pages"
+        id: deployment
         uses: actions/deploy-pages@v2
