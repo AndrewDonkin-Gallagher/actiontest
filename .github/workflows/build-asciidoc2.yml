@@ -33,6 +33,7 @@ jobs:
         uses: ./action
       - name: "Step:  prepare pages for upload"
         run: |
+          echo "::warning warning"
           mkdir _site
           mv ref training _site
       - name: "Step:  upload pages artifact"
