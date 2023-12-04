@@ -44,11 +44,11 @@ asciidoctor-pdf -r asciidoctor-diagram -o $D/book.pdf --verbose test.adoc || tru
 echo Building multi-page HTML from AsciiDoc
 asciidoctor-multipage -r asciidoctor-diagram -D $D/paged --verbose test.adoc || true
 
-echo Putting output into $INPUT_OUTPUT
-tar --dereference --hard-dereference -C $D -cvf $INPUT_OUTPUT .
-
 uname -a
 echo $RUNNER_OS
+
+echo Putting output into $INPUT_OUTPUT
+tar --dereference --hard-dereference -C $D -cvf $INPUT_OUTPUT .
 
 # Names of chapter html files start with underscores, which Jekyll does not preserve,
 # so the repo needs a .nojekyll in the root.
