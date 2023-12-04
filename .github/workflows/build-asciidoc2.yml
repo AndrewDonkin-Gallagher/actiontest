@@ -25,11 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     name: "Job:  adoc -> HTML"
     steps:
-      - name: "Step:  Checkout"
+      - name: "Step:  checkout"
         uses: actions/checkout@v4
-      - name: "Step:  setup pages"
+      - name: "Step:  set up pages"
         uses: actions/configure-pages@v3
-      - name: "Step:  Build HTML tarball from Asciidoc"
+      - name: "Step:  build HTML tarball from Asciidoc"
         uses: ./action
         with:
           output: artifact.tar
@@ -50,5 +50,4 @@ jobs:
     needs: buildhtmljob
     steps:
       - name: "Step:  deploy to GitHub Pages"
-        id: deployment
         uses: actions/deploy-pages@v2
