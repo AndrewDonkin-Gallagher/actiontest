@@ -1,6 +1,15 @@
 # action.yml
-name: 'Run Asciidoctor'
+name: 'Action:  run Asciidoctor'
 description: 'Generates HTML'
+
+inputs:
+  output:
+    description: "Full path of artifact (tarball) to produce."
+    required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.output }}
+
