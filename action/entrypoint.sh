@@ -32,3 +32,6 @@ mv $T $INPUT_OUTPUT
 echo Artifact: $INPUT_OUTPUT
 ls -l $INPUT_OUTPUT
 
+echo ::warning warning
+echo ::error error
+echo ::info info
