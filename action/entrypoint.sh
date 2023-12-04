@@ -16,6 +16,9 @@ set -e
 echo Args
 echo $*
 
+echo Env
+env
+
 [[ x"$OUTPUT" != x ]]
 
 sed -i \
