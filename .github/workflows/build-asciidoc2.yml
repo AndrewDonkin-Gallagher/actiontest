@@ -33,11 +33,7 @@ jobs:
         uses: ./action
       - name: "Step:  prepare pages for upload"
         run: |
-          echo "::warning warning"
-          mkdir _site
-          pwd
-          ls -al
-          mv ref training _site
+          mv index.html multipage _site
       - name: "Step:  upload pages artifact"
         uses: actions/upload-pages-artifact@v1
         with:
